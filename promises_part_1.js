@@ -9,15 +9,36 @@ $.getJSON(`${baseURL}${myNumber}?json`)
     .then(data => {
         console.log(data)
         console.log(data.text)
+        console.log(myNumber)
+        $("#question-1").append(`<h2 class="card-title text-primary">#${myNumber}</h2>`)
+        $("#question-1").append(`<p class="card-text text-secondary">${data.text}</p>`)
     })
 
 
 //2
-$.getJSON(`${baseURL}${fiveNumbers}?json`)
-    .then(data => {
-        console.log(data)
-        
-    })
+for (num of fiveNumbers) {
+    $.getJSON(`${baseURL}${num}?json`)
+        .then(data => {
+            console.log(data)
+            $("#question-2").append(
+                `<div class="my-4 card" id="card-${data.number}">
+                    <div class="card-body">
+                        <h2 class="card-title text-primary">#${data.number}</h2>
+                        <p class="card-text text-secondary">${data.text}</p>
+                    </div>
+                </div>`)
+        })
+}
+
+
+
+
+
+// $.getJSON(`${baseURL}${fiveNumbers}?json`)
+    
+    // .then(facts => {
+    //     facts.forEach(data => $("#card-1").append(`<h2>${data.number}</h2>`));
+    // });
 
 
 
@@ -43,6 +64,3 @@ $.getJSON(`${baseURL}${fiveNumbers}?json`)
 //     .catch(err => console.log(err));
     
 // console.log(fiveRandomFacts)
-
-
-
