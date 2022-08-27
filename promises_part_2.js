@@ -10,8 +10,24 @@ $.getJSON(`${baseURL}/new/draw/?count=1`)
     .then(data => {
         console.log(data)
         let card = data.cards[0]
-        console.log(`${ card.value } of ${ card.suit }`)
-        // console.log(data.text)
-        // console.log(myNumber)
-        
+        console.log(`${card.value} of ${card.suit}`);
+    });
+
+
+//2
+let card1
+$.getJSON(`${baseURL}/new/draw/?count=1`)
+    .then(data => {
+        console.log(data)
+        card1 = data.cards[0];
+        let deckId = data.deck_id;
+        return $.getJSON(`${baseURL}/${deckId}/draw/`)
     })
+    .then(data => {
+        let card2 = data.cards[0];
+        let cards = [card1, card2]
+        console.log(cards)
+        cards.forEach(function (card) {
+            console.log(`${card.value} of ${card.suit}`);
+        });
+    });
