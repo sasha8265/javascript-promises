@@ -17,20 +17,40 @@
             width: 100vw;
             height: 100vh;
         }
+
+        #card-block > img {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
     </style>
 
 </head>
 
 <body>
     <div id="container">
-        <div class="container">
-            <img src="https://deckofcardsapi.com/static/img/0D.png" class="rounded mx-auto d-block">
-            
-            <div class="text-center">
-                <img src="https://deckofcardsapi.com/static/img/QS.png" class="rounded" alt="">
+        <div class="container h-100">
+            <div class="row h-25 align-items-end">
+                <div class="col text-center">
+                    <button id="get-card" class="btn btn-dark btn-lg">Get Card</button>
+                </div>
+            </div>
+            <div class="row h-50">
+                <div class="col">
+                    <div id="card-block" class="text-center">
+                    </div>
+                </div>               
+            </div>
+            <div class="row h-25 align-items-center">
+                <div class="col text-center">
+                    <span class="h3 text-light">Cards Remaining: </span><span class="h3 text-light" id="cards-left"></span>
+                </div>
             </div>
         </div>
-        
     </div>
 
 
