@@ -63,7 +63,13 @@ $(function () {
                 cardsRemaining = data.remaining;
                 console.log(cardsRemaining)
                 $cardsLeft.text(cardsRemaining);
-            })
+                if (data.remaining == 0) {
+                    $btn.text("Start Over?")
+                        .on('click', function () {
+                        location.reload()
+                    });
+                };
+            });
         });
     });
 })
